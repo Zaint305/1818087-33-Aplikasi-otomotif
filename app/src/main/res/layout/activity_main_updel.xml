@@ -36,11 +36,6 @@
         android:hint="cc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/updel_deskripsi"
-        android:hint="Deskripsi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
     <Button
         android:id="@+id/btn_up"
         android:layout_marginTop="20dp"

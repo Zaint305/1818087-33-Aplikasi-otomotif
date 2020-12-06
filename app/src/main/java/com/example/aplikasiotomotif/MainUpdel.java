@@ -8,8 +8,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 public class MainUpdel extends AppCompatActivity {
     private MyDatabase db;
-    private String Sid, Snama, Spabrikan, Scc, Sdeskripsi;
-    private EditText Enama, Epabrikan, Ecc, Edeskripsi;
+    private String Sid, Snama, Spabrikan, Scc;
+    private EditText Enama, Epabrikan, Ecc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,15 +20,12 @@ public class MainUpdel extends AppCompatActivity {
         Snama = i.getStringExtra("Inama");
         Spabrikan = i.getStringExtra("Ipabrikan");
         Scc = i.getStringExtra("Icc");
-        Sdeskripsi = i.getStringExtra("Ideskripsi");
         Enama = (EditText) findViewById(R.id.updel_nama);
         Epabrikan = (EditText) findViewById(R.id.updel_pabrikan);
         Ecc = (EditText) findViewById(R.id.updel_cc);
-        Edeskripsi = (EditText) findViewById(R.id.updel_deskripsi);
         Enama.setText(Snama);
         Epabrikan.setText(Spabrikan);
         Ecc.setText(Scc);
-        Edeskripsi.setText(Sdeskripsi);
         Button btnUpdate = (Button) findViewById(R.id.btn_up);
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +33,6 @@ public class MainUpdel extends AppCompatActivity {
                 Snama = String.valueOf(Enama.getText());
                 Spabrikan = String.valueOf(Epabrikan.getText());
                 Scc = String.valueOf(Ecc.getText());
-                Sdeskripsi = String.valueOf(Edeskripsi.getText());
                 if (Snama.equals("")){
                     Enama.requestFocus();
                     Toast.makeText(MainUpdel.this, "Silahkan isi nama",
@@ -51,13 +47,8 @@ public class MainUpdel extends AppCompatActivity {
                     Toast.makeText(MainUpdel.this, "Silahkan isi cc",
                             Toast.LENGTH_SHORT).show();
                 }
-                else if (Sdeskripsi.equals("")){
-                    Edeskripsi.requestFocus();
-                    Toast.makeText(MainUpdel.this, "Silahkan isi Deskripsi",
-                            Toast.LENGTH_SHORT).show();
-                }
                 else {
-                    db.UpdateOtomotif(new otomotif(Sid, Snama, Spabrikan, Scc, Sdeskripsi));
+                    db.UpdateOtomotif(new otomotif(Sid, Snama, Spabrikan, Scc));
                     Toast.makeText(MainUpdel.this, "Data telah diupdate",
                             Toast.LENGTH_SHORT).show();
                     finish();
@@ -68,7 +59,7 @@ public class MainUpdel extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db.DeleteOtomotif(new otomotif(Sid, Snama, Spabrikan, Scc, Sdeskripsi));
+                db.DeleteOtomotif(new otomotif(Sid, Snama, Spabrikan, Scc));
                 Toast.makeText(MainUpdel.this, "Data telah dihapus",
                         Toast.LENGTH_SHORT).show();
                 finish();

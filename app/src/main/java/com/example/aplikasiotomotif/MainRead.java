@@ -32,7 +32,6 @@ public class MainRead extends AppCompatActivity implements
             judulModel.set_nama(cn.get_nama());
             judulModel.set_pabrik(cn.get_pabrik());
             judulModel.set_cc(cn.get_cc());
-            judulModel.set_deskrip(cn.get_deskrip());
             ListOtomotif.add(judulModel);
             if ((ListOtomotif.isEmpty()))
                 Toast.makeText(MainRead.this, "Tidak ada data",
@@ -49,13 +48,11 @@ public class MainRead extends AppCompatActivity implements
         String Snama = obj_itemDetails.get_nama();
         String Spabrikan = obj_itemDetails.get_pabrik();
         String Scc = obj_itemDetails.get_cc();
-        String Sdeskripsi = obj_itemDetails.get_deskrip();
         Intent goUpdel = new Intent(MainRead.this, MainUpdel.class);
         goUpdel.putExtra("Iid", Sid);
         goUpdel.putExtra("Inama", Snama);
         goUpdel.putExtra("Ipabrikan", Spabrikan);
         goUpdel.putExtra("Icc", Scc);
-        goUpdel.putExtra("Ideskripsi", Sdeskripsi);
         startActivity(goUpdel);
     }
     @Override
@@ -70,7 +67,6 @@ public class MainRead extends AppCompatActivity implements
             judulModel.set_nama(cn.get_nama());
             judulModel.set_pabrik(cn.get_pabrik());
             judulModel.set_cc(cn.get_cc());
-            judulModel.set_deskrip(cn.get_deskrip());
             ListOtomotif.add(judulModel);
             if ((ListOtomotif.isEmpty()))
                 Toast.makeText(MainRead.this, "Tidak ada data",

@@ -16,14 +16,12 @@ public class MyDatabase extends SQLiteOpenHelper {
     private static final String tb_oto_nama = "nama";
     private static final String tb_oto_pabrikan = "pabrikan";
     private static final String tb_oto_cc = "cc";
-    private static final String tb_oto_deskripsi = "deskripsi";
     private static final String CREATE_TABLE_OTOMOTIF = "CREATE TABLE " +
             tb_oto + "("
             + tb_oto_id + " INTEGER PRIMARY KEY ,"
             + tb_oto_nama + " TEXT,"
             + tb_oto_pabrikan + " TEXT,"
-            + tb_oto_cc + " TEXT, "
-            + tb_oto_deskripsi+"TEXT" + ")";
+            + tb_oto_cc + " TEXT" + ")";
 
     public MyDatabase (Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -46,7 +44,6 @@ public class MyDatabase extends SQLiteOpenHelper {
         values.put(tb_oto_nama, mdNotif.get_nama());
         values.put(tb_oto_pabrikan, mdNotif.get_pabrik());
         values.put(tb_oto_cc, mdNotif.get_cc());
-        values.put(tb_oto_deskripsi, mdNotif.get_deskrip());
         db.insert(tb_oto, null, values);
         db.close();
     }
@@ -63,7 +60,6 @@ public class MyDatabase extends SQLiteOpenHelper {
                 mdKontak.set_nama(cursor.getString(1));
                 mdKontak.set_pabrik(cursor.getString(2));
                 mdKontak.set_cc(cursor.getString(3));
-                mdKontak.set_deskrip(cursor.getString(4));
                 judulModelList.add(mdKontak);
             } while (cursor.moveToNext());
         }
@@ -76,7 +72,6 @@ public class MyDatabase extends SQLiteOpenHelper {
         values.put(tb_oto_nama, mdNotif.get_nama());
         values.put(tb_oto_pabrikan, mdNotif.get_pabrik());
         values.put(tb_oto_cc, mdNotif.get_cc());
-        values.put(tb_oto_deskripsi, mdNotif.get_deskrip());
         return db.update(tb_oto, values, tb_oto_id + " = ?",
                 new String[] { String.valueOf(mdNotif.get_id())});
     }

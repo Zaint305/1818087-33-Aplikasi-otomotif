@@ -43,12 +43,10 @@ public class CustomListAdapter extends BaseAdapter {
         TextView nama = (TextView) convertView.findViewById(R.id.text_nama);
         TextView pabrikan = (TextView) convertView.findViewById(R.id.text_pab);
         TextView cc = (TextView) convertView.findViewById(R.id.text_cc);
-        TextView deskripsi = (TextView) convertView.findViewById(R.id.text_deskripsi);
         otomotif o = movieItems.get(position);
         nama.setText("Nama : "+ o.get_nama());
         pabrikan.setText("Pabrikan : "+ o.get_pabrik());
         cc.setText("cc : "+ o.get_cc());
-        deskripsi.setText("Deskripsi : "+ o.get_deskrip());
         return convertView;
     }
 }

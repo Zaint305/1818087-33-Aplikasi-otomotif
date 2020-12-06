@@ -9,8 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 public class MainCreate extends AppCompatActivity {
     private MyDatabase db;
-    private EditText Enama, Epabrikan, Ecc, Edeskripsi;
-    private String Snama, Spabrikan, Scc, Sdeskripsi;
+    private EditText Enama, Epabrikan, Ecc;
+    private String Snama, Spabrikan, Scc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +19,6 @@ public class MainCreate extends AppCompatActivity {
         Enama = (EditText) findViewById(R.id.create_name);
         Epabrikan = (EditText) findViewById(R.id.create_pabrikan);
         Ecc = (EditText) findViewById(R.id.create_cc);
-        Edeskripsi = (EditText) findViewById(R.id.create_deskripsi);
         Button btnCreate = (Button) findViewById(R.id.create_btn);
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,18 +39,13 @@ public class MainCreate extends AppCompatActivity {
                     Toast.makeText(MainCreate.this, "Silahkan isi cc",
                             Toast.LENGTH_SHORT).show();
                 }
-                else if (Sdeskripsi.equals("")){
-                    Edeskripsi.requestFocus();
-                    Toast.makeText(MainCreate.this, "Silahkan isi deskripsi",
-                            Toast.LENGTH_SHORT).show();
-                } else {
+                 else {
                     Enama.setText("");
                     Epabrikan.setText("");
                     Ecc.setText("");
-                    Edeskripsi.setText("");
                     Toast.makeText(MainCreate.this, "Data telah ditambah",
                             Toast.LENGTH_SHORT).show();
-                    db.CreateOtomotif(new otomotif(null, Snama, Spabrikan, Scc, Sdeskripsi));
+                    db.CreateOtomotif(new otomotif(null, Snama, Spabrikan, Scc));
                     Intent a = new Intent(MainCreate.this, MainActivity.class);
                     startActivity(a);
                 }

@@ -1,13 +1,12 @@
 package com.example.aplikasiotomotif;
 
 public class otomotif {
-    private String _id, _nama, _pabrik, _cc, _deskrip;
-    public otomotif (String id, String nama, String pabrikan, String cc, String deskrip) {
+    private String _id, _nama, _pabrik, _cc;
+    public otomotif (String id, String nama, String pabrikan, String cc) {
         this._id = id;
         this._nama = nama;
         this._pabrik = pabrikan;
         this._cc = cc;
-        this._deskrip = deskrip;
     }
     public otomotif() {
     }
@@ -34,12 +33,6 @@ public class otomotif {
     }
     public void set_cc(String _cc) {
         this._cc = _cc;
-    }
-    public String get_deskrip() {
-        return _deskrip;
-    }
-    public void set_deskrip(String _deskrip) {
-        this._deskrip = _deskrip;
     }
 }
 

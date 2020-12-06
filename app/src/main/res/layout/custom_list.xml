@@ -49,15 +49,7 @@
             android:layout_below="@+id/title"
             android:layout_toRightOf="@+id/thumbnail_offline"
             android:layout_toEndOf="@+id/thumbnail_offline" />
-        <TextView
-            android:textColor="@color/white"
-            android:text="Deskripsi"
-            android:id="@+id/text_deskripsi"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
-            android:layout_toRightOf="@+id/thumbnail_offline"
-            android:layout_toEndOf="@+id/thumbnail_offline" />
+
     </LinearLayout>
 
 </LinearLayout>
